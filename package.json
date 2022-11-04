@@ -4,7 +4,8 @@
   "description": "Playwright discovery for bankathon",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "debug": "npx playwright test --headed --timeout=0"
   },
   "author": "Un John Claude",
   "license": "ISC",
