@@ -16,13 +16,13 @@ test("absa", async ({ page }) => {
 
   // Insert username/acct number
   await page.waitForSelector("#j_username");
-  await page.locator(`#${usernameId}`).fill(accountNumber);
+  await page.locator(`#j_username`).fill(accountNumber);
 
   await page.waitForSelector("#j_pin");
-  await page.locator(`#${pinId}`).fill(pin);
+  await page.locator(`#j_pin`).fill(pin);
 
   await page.waitForSelector("#j_user_no");
-  await page.locator(`#${userNumberId}`).fill(userNumber);
+  await page.locator(`#j_user_no`).fill(userNumber);
 
   await page.getByRole("button", { name: "Next" }).click();
 
@@ -43,3 +43,5 @@ test("absa", async ({ page }) => {
 
   await expect(page).toHaveURL("https://ib.absa.co.za/absa-online/login.jsp");
 });
+
+
