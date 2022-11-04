@@ -1,0 +1,14 @@
+{
+  "name": "bankathon",
+  "version": "1.0.0",
+  "description": "Playwright discovery for bankathon",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Un John Claude",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.27.1"
+  }
+}
