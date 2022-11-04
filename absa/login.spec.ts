@@ -1,13 +1,6 @@
 import { test, expect, chromium, Page } from "@playwright/test";
 
-
 test("absa", async ({ page }) => {
-  const insertInitialCredentials = async (page: Page) => {
-    await page.locator(`#${usernameId}`).fill(accountNumber);
-    await page.locator(`#${pinId}`).fill(pin);
-    await page.locator(`#${userNumberId}`).fill(userNumber);
-  };
-
   await page.goto("https://ib.absa.co.za/absa-online/login.jsp");
 
   // Inputs fields
@@ -22,31 +15,31 @@ test("absa", async ({ page }) => {
   let userPassword = "bigboygpr250";
 
   // Insert username/acct number
-  await insertInitialCredentials(page);
+  await page.waitForSelector("#j_username");
+  await page.locator(`#${usernameId}`).fill(accountNumber);
+
+  await page.waitForSelector("#j_pin");
+  await page.locator(`#${pinId}`).fill(pin);
+
+  await page.waitForSelector("#j_user_no");
+  await page.locator(`#${userNumberId}`).fill(userNumber);
+
   await page.getByRole("button", { name: "Next" }).click();
 
   // // Enter password
+  await page.waitForSelector(".pf");
   const arrayOfPasswords = await page.locator(".pf");
   const elementsCount = await arrayOfPasswords.count();
-  console.log(elementsCount);
 
-  // // for each pf field
-  // // if disabled == false
-  // // fill field with password[index]
+  for (let index = 0; index < elementsCount; index++) {
+    const element = await arrayOfPasswords.nth(index);
+    if (!(await element.isDisabled())) {
+      await element.fill(userPassword[index]);
+    }
+  }
 
-  // const passwordLoop = async () => {
-  //   for (let index = 0; index < elementsCount; index++) {
-  //     const element = await arrayOfPasswords.nth(index);
-  //     if (!(await element.isDisabled())) {
-  //       await element.fill(userPassword[index]);
-  //     }
-  //   }
-  // };
+  await page.getByRole("button", { name: "Logon" }).click();
+  await page.waitForLoadState('domcontentloaded');
 
-  // await passwordLoop();
-
-  // await page.getByRole("button", { name: "Logon" }).click();
-  await expect(page).toHaveURL(
-    "https://ib.absa.co.za/absa-online/login.jsp"
-  );
+  await expect(page).toHaveURL("https://ib.absa.co.za/absa-online/login.jsp");
 });
