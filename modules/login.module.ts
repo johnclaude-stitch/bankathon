@@ -7,10 +7,10 @@ export async function login(page: Page) {
   const userNumberId = "#j_user_no";
 
   // Input values
-  let accountNumber = "4082314247";
-  let pin = "2712";
+  let accountNumber = "123456";
+  let pin = "1234";
   let userNumber = "1";
-  let userPassword = "bigboygpr250";
+  let userPassword = "1234567";
 
   // Insert username/acct number
   await page.waitForSelector(usernameId);
