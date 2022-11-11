@@ -2,9 +2,9 @@ import { Page } from "@playwright/test";
 
 export async function login(page: Page) {
   // Inputs fields
-  const usernameId = "j_username";
-  const pinId = "j_pin";
-  const userNumberId = "j_user_no";
+  const usernameId = "#j_username";
+  const pinId = "#j_pin";
+  const userNumberId = "#j_user_no";
 
   // Input values
   let accountNumber = "4082314247";
@@ -13,14 +13,14 @@ export async function login(page: Page) {
   let userPassword = "bigboygpr250";
 
   // Insert username/acct number
-  await page.waitForSelector("#j_username");
-  await page.locator(`#j_username`).fill(accountNumber);
+  await page.waitForSelector(usernameId);
+  await page.locator(usernameId).fill(accountNumber);
 
-  await page.waitForSelector("#j_pin");
-  await page.locator(`#j_pin`).fill(pin);
+  await page.waitForSelector(pinId);
+  await page.locator(pinId).fill(pin);
 
-  await page.waitForSelector("#j_user_no");
-  await page.locator(`#j_user_no`).fill(userNumber);
+  await page.waitForSelector(userNumberId);
+  await page.locator(userNumberId).fill(userNumber);
 
   await page.getByRole("button", { name: "Next" }).click();
 
@@ -36,8 +36,10 @@ export async function login(page: Page) {
     }
   }
 
-  // Choose landing page
-  await page.selectOption("#landingpage2", "express");
+  // Full Service
+  await page.locator('select[name="landingpage2"]').selectOption('accounts');
+  // Express
+  // await page.locator('select[name="landingpage2"]').selectOption('express');
 
   await page.getByRole("button", { name: "Logon" }).click();
   await page.waitForLoadState("domcontentloaded");

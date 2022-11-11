@@ -1,4 +1,5 @@
 import { test, expect, chromium, Page } from "@playwright/test";
+import { getAccounts } from "../modules/getAccounts.module";
 import { login } from "../modules/login.module";
 
 test.only("accounts", async ({ page }) => {

@@ -7,7 +7,10 @@ test("login", async ({ page }) => {
   // login
   await login(page);
 
+  // Full Service
   await expect(page).toHaveURL("https://ib.absa.co.za/absa-online/login.jsp");
+  // Express
+  // await expect(page).toHaveURL('https://ib.absa.co.za/axob/cb/online-banking/dashBoard');
 });
 
 
