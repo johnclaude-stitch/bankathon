@@ -36,8 +36,10 @@ export async function login(page: Page) {
     }
   }
 
-  // Ensure that we go to the express page
-  await page.locator('select[name="landingpage2"]').selectOption('express');
+  // Full Service
+  await page.locator('select[name="landingpage2"]').selectOption('accounts');
+  // Express
+  // await page.locator('select[name="landingpage2"]').selectOption('express');
 
   await page.getByRole("button", { name: "Logon" }).click();
   await page.waitForLoadState("domcontentloaded");
