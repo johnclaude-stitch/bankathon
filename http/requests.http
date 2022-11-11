@@ -1,0 +1,39 @@
+###
+POST https://ib.absa.co.za/axob/BalanceEnquiryFacadeGetAllBalances.exp HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+Cookie: JSESSIONID=icjDin-vhGsVFWupeG65cEJrNFv1FvSXcwUKODp-.zaprnbrapp0142_9091; __gdic=l9h7ewmcufo0bb8sh9i; ___r422006=0.5243950253199; XFPT=49f8790743853362000; CRE=30621b14cc103696d40; CRE=30621b14cc103696d40; AMCVS_AA45CC59566062417F000101%40AdobeOrg=1; at_check=true; s_cc=true; s_vnum=1668870882584%26vn%3D6; s_nr=1668148445254-Repeat; s_sq=absabanklive1%3D%2526pid%253Dhome%2526pidt%253D1%2526oid%253Dhttps%25253A%25252F%25252Fib.absa.co.za%25252Fabsa-online%25252Findex.jsp%25253Faxob%25253D2%252526lang%25253DE%252526rid%25253D9672583139%252526goto%25253Dhttps%25253A%25252F%25252Fib.absa.co._1%2526oidt%253D1%2526ot%253DA%2526oi%253D1; WFPT=30621b14cc103696d40; WFPT=30621b14cc103696d40; CRE=30621b14cc103696d40; mbox=PC#b57177e3955f4940906e97355b5b9fab.37_0#1731396561|session#773803b04e8c45d1b126d63e6cd21747#1668153361; CMCSAO="NHaLEsUMLH0pnV2F/OJX1tS08O+WIBE8GMYJIrmKWofN9TWy9t5cwtv4rTM1D1dTQOCA5j13loN0ecAkYslsAXzdrhNkIGYVIpUcSZ0CT+ecJFFOztG4I7yyWIu2aSAyMcNEjc9nVFtCD3HaNqqJ9Oo58fZolwiK2r8X5kEJNy0="; AMCV_AA45CC59566062417F000101%40AdobeOrg=-1124106680%7CMCIDTS%7C19308%7CMCMID%7C15428439239498483209221502600656734487%7CMCAID%7CNONE%7CMCOPTOUT-1668159044s%7CNONE%7CvVersion%7C5.2.0; LSESSIONID=eyJpIjoiNm9cL1h4TnpvS0pEdmsyMDgyWUVMN0E9PSIsImUiOiJIZHFrZUJGVjF3dVdmc1VES09sdUZtVzdXNnhRVnlQbEtuUXpIVkxyRVUzOGQ5RWpUemlYZFBJV2dHOUJoc2FHSHVrUGg1VDBSOXZZUFh6VU5UMVhrUmIreEppdEJiZ21oamZsYWNEditcLzdMOVJcL0sydVdNeTY5ejJVZDlDdjdqTTVtcHJ3U1JhcUMybVIwSTh6SG81UT09In0%3D.0c0d9b5c17f6f7e8.OTZmZWMxYmI0ZmY0ZThkODJkMGE4YmQwMjk1ZjdhNjVkMDg0MzY3ZTcyOTAxNTc5NjEyN2IyMzFkMDhjYjFkOQ%3D%3D; ___so422006=eyJsc2giOjMwMDMzNDE2NzYsInJlZmVycmVyIjoiaHR0cHM6Ly9pYi5hYnNhLmNvLnphL2F4b2IvY2IuanNwP3JpZD03NzE2MjM5MDY5Iiwic290Ijoic2VjdXJpdHlfcXVlc3Rpb24iLCJzZCI6bnVsbCwic2RjIjpudWxsLCJyIjoic2VjdXJpdHlfcXVlc3Rpb24iLCJrIjpbXSwiZSI6eyJuIjozLCJhIjpbeyI2Ijp0cnVlLCJzciI6Imh0dHBzOi8vaWIuYWJzYS5jby56YS9hYnNhLW9ubGluZS9zdGF0aWMvc3R5bGUvcmVzb3VyY2VzL2RvdC5naWYifSwiNiJdLCJyaWQiOjAuNjkxNTI3MzcwNjgxOTA2MX0sImNpc2lnIjozMDU2NzYwMDYsIm4iOjE4LCJjIjoxOCwibWNjIjo3MjQsIm1rIjpbXSwiYWZwIjp0cnVlLCJkaSI6IiIsImtjIjo1LCJjYyI6NSwibWMiOjN9
+Host: ib.absa.co.za
+newrelic: eyJ2IjpbMCwxXSwiZCI6eyJ0eSI6IkJyb3dzZXIiLCJhYyI6IjE3MTg5NjIiLCJhcCI6IjMzMDAzMDg0MSIsImlkIjoiZTlhNWE1YTUyZmNhMDViNyIsInRyIjoiZGZiYTk0NWZhZTZjZTZjMmJlMjNkYmIwZmUxMmE3YTAiLCJ0aSI6MTY2ODE1MTg0NTM3MywidGsiOiIxODk3OTAyIn19
+
+{
+  "searchString": "",
+  "header": {
+    "statuscode": "0",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36",
+    "wfpt": "30621b14cc103696d40",
+    "jsessionid": "icjDin-vhGsVFWupeG65cEJrNFv1FvSXcwUKODp-",
+    "esessionid": "2027eccd1e47ce395e9b",
+    "xfpt": "49f8790743853362000",
+    "service": "BalanceEnquiryFacade",
+    "operation": "GetAllBalances",
+    "channel": "I",
+    "timestamp": "2022-11-11 09:30:45",
+    "sourceip": "22.242.240.159",
+    "accessAccount": "4104754941",
+    "userNumber": "",
+    "nonce": "Uev44eKDID2NRXZqGQ1kbOT1vOY59pQlM30G2rhIuUY",
+    "language": "en",
+    "organization": "ABSA",
+    "brand": "ABSA",
+    "applicationId": "INTERNETCBNK",
+    "paginationContext": {
+      "moreToCome": false,
+      "batchSize": "200",
+      "batchSizeLimit": 0,
+      "recordIdentity": "0",
+      "totalNoOfRecords": 0
+    }
+  }
+}
