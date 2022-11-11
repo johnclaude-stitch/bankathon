@@ -1,7 +1,7 @@
 import { test, expect, chromium, Page } from "@playwright/test";
-import { login } from "../modules/login";
+import { login } from "../modules/login.module";
 
-test.only("absa", async ({ page }) => {
+test("login", async ({ page }) => {
   await page.goto("https://ib.absa.co.za/absa-online/login.jsp");
 
   // login

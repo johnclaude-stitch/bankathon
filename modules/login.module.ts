@@ -9,7 +9,7 @@ export async function login(page: Page) {
   // Input values
   let accountNumber = "4082314247";
   let pin = "2712";
-  let userNumber = "1";
+  let userNumber = "1"
   let userPassword = "bigboygpr250";
 
   // Insert username/acct number
