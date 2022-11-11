@@ -1,5 +1,4 @@
-import { test, expect, chromium, Page } from "@playwright/test";
-import { getAccounts } from "../modules/getAccounts.module";
+import { test } from "@playwright/test";
 import { login } from "../modules/login.module";
 
 test.only("add benny", async ({ page }) => {
@@ -27,21 +26,35 @@ test.only("add benny", async ({ page }) => {
   await page.locator(".ap-tabHead-addBeneficiary").click();
 
   // MFA
-  await page.waitForSelector(".ap-n2fa-TVM-form.sureCheck2Form.ap-SVM-form", {
-    timeout: 60000,
+  await page.waitForSelector("#timerCanvas", {
+    state: "visible",
   });
 
-  // TODO: handle MFA failure
+  var mfaFailed = page
+    .waitForSelector(".ap-n2fa-errorMessageContainer")
+    .then(() => "failed");
 
-  // Assume success
-  await page.waitForSelector(".ap-addBeneficiary-form", {
-    timeout: 60000,
-  });
+  var mfaSucceded = page
+    .waitForSelector(".ap-addBeneficiary-form")
+    .then(() => "success");
 
-  // Benny could be absa or at another institution
+  const result = await Promise.race([mfaFailed, mfaSucceded]);
+
+  console.log(result);
+
+  // if the following element is visible, we failed MFA, resend
+  if (result === "failed") {
+    // MFA failed, try and resend it.
+    console.log("MFA Failed.... Retrying");
+    await page.locator('[aria-label="Resend. "]').click();
+  }
+
+  console.log("MFA Succeeded");
+
+  //Benny could be absa or at another institution
   const benny = {
     name: "Pivendren Naik",
-    accountNumber: "4082314247" // Pivendren's acct
+    accountNumber: "4082314247", // Pivendren's acct
   };
 
   const bennyNameFieldId = "#addBeneficiary-beneficiaryName";
@@ -60,8 +73,14 @@ test.only("add benny", async ({ page }) => {
   await page.locator(bennyReferenceFieldId).fill("stitch-bankathon");
 
   // Click and send it
-  // aria-label="Next. "
-  await page.locator('[aria-label="Next. "]').click();
+  await page.locator('role=button[name="Next."]').click();
+
+  // Click Add
+  await page.waitForSelector(".ap-notifications-confirm");
+  await page.locator('[aria-label="Add. "]').click();
+
+  // Wait for success
+  await page.waitForSelector(".ui-message-success");
 
   await new Promise(() => {}); // prevents your script from exiting!
   console.log("hey");
