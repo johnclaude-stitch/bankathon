@@ -7,11 +7,11 @@ test.only("accounts", async ({ page }) => {
   // login
   await login(page);
 
-  await page.waitForLoadState("domcontentloaded");
-
-  // Try and get accounts
-  await page.waitForSelector('tile');
-  const arrayOfAccountTiles = await page.locator("tile").locator('tile__data');
-
-  console.log("hey")
+  // Click pay
+  await page.waitForSelector('.greeting.greeting-gt-md');
+  await page.locator('[aria-label="Transact Page"]').click();
+ 
+  // keep browser open
+  await new Promise(() => {}); // prevents your script from exiting! 
+  console.log("hey");
 });
