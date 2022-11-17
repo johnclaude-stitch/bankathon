@@ -1,7 +1,7 @@
 import { test } from "@playwright/test";
 import { login } from "../modules/login.module";
 
-test.only("add benny", async ({ page }) => {
+test("add benny", async ({ page }) => {
   await page.goto("https://ib.absa.co.za/absa-online/login.jsp");
 
   // login
